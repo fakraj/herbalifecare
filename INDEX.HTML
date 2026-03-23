@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Herbalife Wellness Journey - Certified Mentor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(40,167,69,0.9), rgba(32,201,151,0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e8f5e8" width="1200" height="600"/><circle fill="%2328a745" opacity="0.1" cx="200" cy="150" r="100"/><circle fill="%2320c997" opacity="0.1" cx="1000" cy="400" r="150"/></svg>');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,215,0,0.4);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #28a745;
+        }
+
+        /* Products Overview */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 5px solid #28a745;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            color: #20c997;
+            margin-bottom: 1rem;
+        }
+
+        /* Importance Section */
+        .importance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .importance-item {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .importance-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #28a745, #20c997);
+        }
+
+        /* Mentor Section */
+        .mentor-section {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            text-align: center;
+        }
+
+        .mentor-profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .mentor-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .mentor-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* AI Chatbot */
+        .ai-chat {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(40,167,69,0.4);
+            z-index: 1001;
+            transition: all 0.3s;
+        }
+
+        .ai-chat:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-window {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            flex-direction: column;
+            z-index: 1002;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 1rem;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background: #28a745;
+            color: white;
+            margin-left: auto;
+        }
+
+        .bot-message {
+            background: white;
+            border: 1px solid #dee2e6;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #dee2e6;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 25px;
+            outline: none;
+        }
+
+        .chat-input button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .mentor-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-leaf"></i> Herbalife Wellness
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#importance">Why Herbalife</a></li>
+                <li><a href="#mentor">Your Mentor</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Health with Herbalife</h1>
+            <p>Premium Nutrition • Proven Results • Expert Guidance</p>
+            <a href="#mentor" class="cta-button">Start Your Journey Today</a>
+        </div>
+    </section>
+
+    <!-- Products Overview -->
+    <section id="products" class="section">
+        <h2>Herbalife Products Overview</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-icon">
+                    <i class="fas fa-shake-hands"></i>
+                </div>
+                <h3>Formula 1 Shake</h3>
+                <p>Meal replacement shake packed with 24g protein, vitamins, minerals, and essential nutrients. Perfect for weight management.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>Protein Drinks</h3>
+                <p>High-quality protein for muscle recovery, energy boost, and satiety. Available in multiple delicious flavors.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">
+                    <i class="fas fa-capsules"></i>
+                </div>
+                <h3>Targeted Nutrition</h3>
+                <p>Specialized supplements for energy, digestion, heart health, immunity, and women's health needs.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3>Herbal Tea Concentrate</h3>
+                <p>Zero-calorie green tea with natural caffeine for energy boost and metabolism support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Importance Section -->
+    <section id="importance" class="section">
+        <h2>Why Herbalife Products Are Essential</h2>
+        <div class="importance-grid">
+            <div class="importance-item">
+                <i class="fas fa-chart-line" style="font-size: 2.5rem; color: #28a745; margin-bottom: 1rem;"></i>
+                <h4>Clinically Proven</h4>
+                <p>Backed by 25+ years of research and millions of success stories worldwide.</p>
+            </div>
+            <div class="importance-item">
+                <i class="fas fa-globe" style="font-size: 2.5rem; color: #28a745; margin-bottom: 1rem;"></i>
+                <h4>Global Quality Standards</h4>
+                <p>Manufactured in world-class facilities meeting strict quality and safety standards.</p>
+            </div>
+            <div class="importance-item">
+                <i class="fas fa-users" style="font-size: 2.5rem; color: #28a745; margin-bottom: 1rem;"></i>
+                <h4>Personalized Support</h4>
+                <p>Your dedicated mentor creates customized plans for your unique goals.</p>
+            </div>
+            <div class="importance-item">
+                <i class="fas fa-balance-scale" style="font-size: 2.5rem; color: #28a745; margin-bottom: 1rem;"></i>
+                <h4>Sustainable Results</h4>
+                <p>Healthy, long-term weight management and wellness, not quick fixes.</p>
+            </div>
+            <div class="importance-item">
+                <i class="fas fa-heartbeat" style="font-size: 2.5rem; color: #28a745; margin-bottom: 1rem;"></i>
+                <h4>Complete Nutrition</h4>
+                <p>Fills nutritional gaps in modern diets for optimal health and energy.</p>
+            </div>
+            <div class="importance-item">
+                <i class="fas fa-star" style="font-size: 2.5rem; color: #28a745; margin-bottom: 1rem;"></i>
+                <h4>Delicious & Convenient</h4>
+                <p>Great-tasting products that fit perfectly into busy lifestyles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentor Section -->
+    <section id="mentor" class="mentor-section section">
+        <h2>Your Certified Herbalife Mentor</h2>
+        <div class="mentor-profile">
+            <div class="mentor-image">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="mentor-info">
+                <h3>FIROJA BEGUM</h3>
+                <p>Certified Herbalife Independent Distributor</p>
+                <p style="font-size: 1.2rem; margin: 1rem 0;">✅ 5+ Years Experience</p>
+                <p style="font-size: 1.2rem; margin: 1rem 0;">✅ Helped 500+ Clients</p>
+                <p style="font-size: 1.2rem; margin: 1rem 0;">✅ Weight Loss & Wellness Expert</p>
+                
+                <div class="contact-highlight">
+                    📞 <strong>+91 9775452968</strong>
+                </div>
+                <p>Ready to guide you to your health goals! Call or WhatsApp now.</p>
+                <a href="tel:+15551234567" class="cta-button" style="background: #ffd700; color: #333; margin-top: 1rem;">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot -->
+    <div class="ai-chat" onclick="toggleChat()">
+        <i class="fas fa-robot" style="font-size: 1.5rem;"></i>
+    </div>
+
+    <div id="chatWindow" class="chat-window">
+        <div class="chat-header">
+            <span>Herbalife AI Assistant 🤖</span>
+            <i class="fas fa-times" onclick="toggleChat()" style="cursor: pointer;"></i>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                Hello! I'm your Herbalife AI assistant. Ask me about products, nutrition tips, or how to get started! 😊
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Type your question..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2026 Herbalife Wellness. All rights reserved. | Contact: +91 9775452968</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // AI Chatbot functionality
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chat
